@@ -10,7 +10,7 @@ class BatchSimilarity(object):
         self.sf = similarity_function()
 
     def make_dict(self):
-        user_vector = self.sdao.select_rating_info()
+        user_vector = self.sdao.select_rating_info_new()
         user_ids = user_vector.keys()
 
         for user_id1 in user_ids:
@@ -24,7 +24,8 @@ class BatchSimilarity(object):
 
                 if(similarity != 0):
                     print(user_id1, user_id2, similarity)
-                    self.sdao.simiilarity_insert(user_id1, user_id2, similarity)
+                    #self.sdao.simiilarity_insert(user_id1, user_id2, similarity)
+                    self.sdao.simiilarity_insert_new(user_id1, user_id2, similarity)
 
 if __name__ == '__main__':
     sbs = BatchSimilarity()
